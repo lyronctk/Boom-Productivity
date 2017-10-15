@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('bar_icon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #003366;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 6px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+
+<link rel="icon" 
+      type="image/png" 
+      href="favicon.ico">
+<title>BOOM Productivity</title>
+
+</head>
+
+<body>
+
+<form>
+  <input type="text" id="url" placeholder="Site URL">
+  <br/>
+  <input type="text" id="minutes" placeholder="Minutes">
+  <br/>
+  <input id="submit" type="button" class="button" onclick="init()" value="Create">
+</form>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function init() {
+      myWindow = window.open("https://www."+document.getElementById("url").value, '_blank');
+      myWindow.focus();
+      setTimeout(function(){
+        myWindow.close();
+        window.location.replace("http://google.com");
+      }, document.getElementById("minutes").value*60000);
+    }
+</script>
