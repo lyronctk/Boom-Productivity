@@ -18,7 +18,7 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-    width: 100%;
+    width: 80%;
 }
 
 .button {
@@ -29,35 +29,16 @@ input[type=text]:focus {
   text-align: center;
   font-size: 15px;
   padding: 6px;
-  width: 130px;
+  width: 117px;
   transition: all 0.5s;
   cursor: pointer;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.button:hover {
+  font-size: 16px;
+  background-color: #194775;
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 </style>
 
 <link rel="icon" 
@@ -70,11 +51,12 @@ input[type=text]:focus {
 <body>
 
 <form>
-  <input type="text" id="url" placeholder="Site URL (netflix.com) *NOTE: should strictly follow this format, no 'https' or 'www'">
-  <br/>
-  <input type="text" id="minutes" placeholder="Time (In Minutes)">
-  <br/>
-  <input id="submit" type="button" class="button" onclick="init()" value="Create">
+  <input type="text" id="url" placeholder="Site URL (eg. netflix.com ; facebook.com) *NOTE: should strictly follow this format, no 'https' or 'www'">
+  <br/><br/>
+  <input type="text" id="minutes" placeholder="Time (In Minutes) before your break time is up and the window you create goes BOOM.">
+  <br/><br/>
+  <input class="button" onclick="init()" value="Create">
+  <!-- <button class="button" onclick="init()"><span>Create </span></button> -->
 </form>
 
 </body>
@@ -84,9 +66,10 @@ input[type=text]:focus {
     function init() {
       myWindow = window.open("https://www."+document.getElementById("url").value, '_blank');
       myWindow.focus();
+      // alert(document.getElementById("minutes").value);
       setTimeout(function(){
         myWindow.close();
-        window.location.replace("https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff2%2F32%2F1b%2Ff2321bb661484cc23d3871fd7690f0c4--typographic-design-design-typography.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fgillaryl%2Fquote%2F&docid=9GGRU1qSb01R7M&tbnid=1bHVEHkesDjIhM%3A&vet=10ahUKEwiFyaG66vHWAhVFOyYKHampDE4QMwgoKAEwAQ..i&w=736&h=920&bih=636&biw=1280&q=inspiring%20phrase%20to%20get%20back%20to%20work&ved=0ahUKEwiFyaG66vHWAhVFOyYKHampDE4QMwgoKAEwAQ&iact=mrc&uact=8");
+        window.location.replace("work.html");
       }, document.getElementById("minutes").value*60000);
     }
 </script>
