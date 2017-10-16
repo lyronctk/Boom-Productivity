@@ -30,7 +30,7 @@ input[type=text]:focus {
   font-size: 15px;
   padding: 6px;
   width: 117px;
-  transition: all 0.5s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
@@ -51,19 +51,18 @@ input[type=text]:focus {
 <body>
 
 <form>
-  <input type="text" id="url" placeholder="Site URL (eg. netflix.com ; facebook.com) *NOTE: should strictly follow this format, no 'https' or 'www'">
+  <input type="text" id="url" placeholder="*Break-time* Site URL (eg. netflix.com ; facebook.com) *NOTE: should strictly follow this format, no 'https' or 'www'">
   <br/><br/>
-  <input type="text" id="minutes" placeholder="Time (In Minutes) before your break time is up and the window you create goes BOOM.">
+  <input type="text" id="minutes" placeholder="Time (In Minutes) before your break time is up and the window you create [specified in the text box above] goes BOOM.">
   <br/><br/>
-  <input class="button" onclick="init()" value="Create">
-  <!-- <button class="button" onclick="init()"><span>Create </span></button> -->
+  <input class="button" onclick="spawn()" value="Create">
 </form>
 
 </body>
 </html>
 
 <script type="text/javascript">
-    function init() {
+    function spawn() {
       myWindow = window.open("https://www."+document.getElementById("url").value, '_blank');
       myWindow.focus();
       // alert(document.getElementById("minutes").value);
